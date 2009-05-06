@@ -35,7 +35,7 @@ class MainFrameHandler(webapp.RequestHandler):
       return
 
     self.response.out.write("""
-      <frameset rows="60%,40%">
+      <frameset rows="75%,25%">
       <frame src="/main" name="main">
       <frame src="/ready" name="status">
       </frameset>""")
@@ -47,9 +47,10 @@ class MainHandler(webapp.RequestHandler):
       return
 
     logout_url = users.create_logout_url(self.request.uri)
-    self.response.out.write("<a href='%s' target='_top'><font align='right'>Logout</a></font>" % logout_url)
+    self.response.out.write("MapReduce on Google App Engine Demo<br>Please do not try too much to save the creator... :) <a href='%s' target='_top'><font align='right'>Logout</a></font>" % logout_url)
 
     self.response.out.write("""
+    <p>Press "Run Map" button and wait for all frames to be green, and click "Run Shuffle & Reduce" button to get final results in the frames.</p>
     <form action="/runmap" method="get" target="status">
     <div>Input<br><textarea name="input" rows="1" cols="100">["This is a pen", "That is a pen too", "That is your pen", "This is my pen", "This is pencil"]</textarea></div><br>
     <div>Map Code:<br><textarea name="map_code" rows="3" cols="60">dict(map(lambda x: (x,'1'), input.split(' ')))</textarea></div>
