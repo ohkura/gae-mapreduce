@@ -47,7 +47,7 @@ class MainHandler(webapp.RequestHandler):
       return
 
     logout_url = users.create_logout_url(self.request.uri)
-    self.response.out.write("MapReduce on Google App Engine Demo<br>Please do not try too much to save the creator... :) <a href='%s' target='_top'><font align='right'>Logout</a></font>" % logout_url)
+    self.response.out.write("MapReduce on Google App Engine Demo<br>Please do not try too much... :) <a href='%s' target='_top'><font align='right'>Logout</a></font>" % logout_url)
 
     self.response.out.write("""
     <p>Press "Run Map" button and wait for all frames to be green, and click "Run Shuffle & Reduce" button to get final results in the frames.</p>
